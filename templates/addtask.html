@@ -7,23 +7,29 @@
         <div class="input-field col s8">
           <i class="material-icons prefix">assignment</i>
           <input id="task_name" name="task_name" type="text" class="validate">
-          <label for="icon_prefix">Task Name</label>
+          <label for="task_name">Task Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8">
           <i class="material-icons prefix">subject</i>
           <textarea id="task_description" name="task_description" class="materialize-textarea"></textarea>
-          <label for="icon_telephone">Task Description</label>
+          <label for="task_description">Task Description</label>
+        </div>
+      </div>
+      <div id="matfix" class="row">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">today</i>
+          <input id="due_date" name="due_date" type="text" class="datepicker">
+          <label for="due_date">Due Date</label>
         </div>
       </div>
       <div class="row">
         <div class="switch">
             <label>
-            Off
-            <input type="checkbox">
+            <input id="is_urgent" name="is_urgent" type="checkbox">
             <span class="lever"></span>
-            On
+            Is Urgent
              </label>
         </div>
       </div>
