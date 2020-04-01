@@ -5,11 +5,11 @@
         <div class="row">            
             <div class="input-field col s12">
                 <i class="material-icons prefix">poll</i>
-                <select id="category" name="category">
+                <select id="category" name="category_name">
                     <option value="" disabled selected>Choose Category</option>
                     {% for cat in categories %}
                         {% if cat.category_name == task.category_name %}
-                        <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
+                            <option value="{{cat.category_name}}" selected>{{cat.category_name}}</option>
                          {% else %}
                             <option value="{{cat.category_name}}">{{cat.category_name}}</option>
                         {% endif %} 
@@ -21,14 +21,14 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">assignment</i>
-                    <input id="task_name" name="task_name" type="text" class="validate">
+                    <input id="task_name" name="task_name" type="text" class="validate" value="{{task.task_name}}">
                     <label for="task_name">Task Name</label>
                 </div>
             </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">subject</i>
-                <textarea id="task_description" name="task_description" class="materialize-textarea"></textarea>
+                <textarea id="task_description" name="task_description" class="materialize-textarea">{{task.task_description}}</textarea>
                 <label for="task_description">Task Description</label>
             </div>
         </div>
@@ -42,7 +42,11 @@
         <div class="row">
             <div class="switch">
                 <label>
-                    <input id="is_urgent" name="is_urgent" type="checkbox">
+                    {% if task.is_urgent %}
+                        <input id="is_urgent" name="is_urgent" type="checkbox" checked>
+                    {% else %}
+                        <input id="is_urgent" name="is_urgent" type="checkbox">
+                    {% endif %}
                     <span class="lever"></span>
                     Is Urgent
                 </label>
@@ -55,5 +59,14 @@
         </div>
     </form>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+    due_date = Date.parse('{{ task.due_date }}');
+
+    });    
+</script>
 
 {% endblock %}
